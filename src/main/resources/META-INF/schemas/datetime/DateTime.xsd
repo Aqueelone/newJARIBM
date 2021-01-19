@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="gbkdatetime.commonargs.report.gamma.sbrf.ru"
+            xmlns:qwe="gbkdatetime.commonargs.report.gamma.sbrf.ru"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            xmlns:gss="arguments.accounts.gamma.sbrf.ru" elementFormDefault="qualified"
+            attributeFormDefault="unqualified" jxb:version="1.0">
+    <xsd:annotation>
+        <xsd:appinfo>
+            <jxb:schemaBindings>
+            </jxb:schemaBindings>
+        </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleType name="dateTime">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <jxb:javaType name="java.util.Date"
+                              parseMethod="ru.sbrf.gamma.datatime.DateAdapter.marshal"
+                              printMethod="ru.sbrf.gamma.datatime.DateAdapter.unmarshal"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime" />
+    </xsd:simpleType>
+</xsd:schema>

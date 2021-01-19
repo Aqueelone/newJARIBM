@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="arguments.accounts.gamma.sbrf.ru" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:gss="arguments.accounts.gamma.sbrf.ru"
+            xmlns:gdt="gbkdatetime.commonargs.report.gamma.sbrf.ru" elementFormDefault="qualified"
+            attributeFormDefault="unqualified" jxb:version="1.0">
+    <xsd:import namespace="gbkdatetime.commonargs.report.gamma.sbrf.ru" schemaLocation="../datetime/DateTime.xsd" />
+    <xsd:annotation>
+        <xsd:appinfo>
+            <jxb:globalBindings generateIsSetMethod="true" underscoreBinding="asCharInWord" />
+        </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType name="SP_READRECORD_ALLArg">
+        <xsd:sequence>
+            <xsd:element name="RETCODE" type="xsd:integer" nillable="true" gss:direction="out" gss:passNull="false" />
+            <xsd:element name="FILENAME" type="xsd:string" nillable="true" gss:direction="in" gss:passNull="false" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SPX_SAVEACCARECVArg">
+        <xsd:sequence>
+            <xsd:element name="RETCODE" type="xsd:integer" nillable="true" gss:direction="out" gss:passNull="false" />
+            <xsd:element name="DATASOURCENAME" type="xsd:string" gss:direction="in" gss:passNull="false" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ru.sbrf.gamma.accounts.EjbAccounts">
+        <xsd:complexType>
+            <xsd:choice>
+                <xsd:element name="SP_READRECORD_ALLArg" type="gss:SP_READRECORD_ALLArg" />
+                <xsd:element name="SPX_SAVEACCARECVArg" type="gss:SPX_SAVEACCARECVArg" />
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
